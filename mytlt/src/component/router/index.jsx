@@ -23,6 +23,7 @@ import PersonalInfo from "../content/PersonalInfo";
 import Gallery from "../Gallery";
 import { PYpapers } from "../content/PYpapers";
 import { PYpaperform } from "../content/PYpaperform";
+import SubjectTestCard from "../ui/SubjectTestCard";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +84,14 @@ export const router = createBrowserRouter([
       {
         path: "fastTrack",
         element: <RegistrationDetails />,
+      },
+      {
+        path: "mockTest/subjectTest",
+        element: <SubjectTestCard/>,
+      },
+      {
+        path: "mockTest/miniMock",
+        element: <MiniMockTest/>,
       },
       {
         path: "jet/*",
