@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="absolute top-full mt-2  bg-white shadow-lg rounded-md opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
               <NavLink
                 className="block px-4 py-2 text-gray-800 hover:bg-red-500 hover:text-white transition-colors duration-300 ease-in-out font-semibold rounded-md"
-                to="/mockTest"
+                to="/mockTest/subjectTest"
               >
                 Subject Test
               </NavLink>
