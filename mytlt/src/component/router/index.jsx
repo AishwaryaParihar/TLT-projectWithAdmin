@@ -90,6 +90,14 @@ export const router = createBrowserRouter([
         element: <SubjectTestCard/>,
       },
       // {
+      //   path: "login-admin",
+      //   element: <Login/>,
+      // },
+      // {
+      //   path: "sign-up",
+      //   element: <SignUp/>,
+      // },
+      // {
       //   path: "mockTest/miniMock",
       //   element: <MiniMockTest/>,
       // },

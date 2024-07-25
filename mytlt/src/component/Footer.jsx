@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/TLTlogo.png";
 import Headings from "./utiliti/heading/Heading";
 import SocialMedia from "./utiliti/SocialMedia/SocialMedia";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   const helpCenterLinks = [
@@ -49,6 +49,14 @@ const Footer = () => {
                     </NavLink>
                   </li>
                 ))}
+                <li className="mb-2">
+                <span className="text-red-500 text-xs">
+                      <i className="fa-solid fa-arrow-right-long"></i>
+                    </span>{" "}
+                    <Link to="/admin-login">
+                    Login
+                    </Link>
+                </li>
               </ul>
             </div>
             {/* Legal */}
