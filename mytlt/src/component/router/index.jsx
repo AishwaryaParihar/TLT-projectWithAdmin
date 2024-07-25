@@ -89,10 +89,10 @@ export const router = createBrowserRouter([
         path: "mockTest/subjectTest",
         element: <SubjectTestCard/>,
       },
-      {
-        path: "mockTest/miniMock",
-        element: <MiniMockTest/>,
-      },
+      // {
+      //   path: "mockTest/miniMock",
+      //   element: <MiniMockTest/>,
+      // },
       {
         path: "jet/*",
         element: <Jet />,

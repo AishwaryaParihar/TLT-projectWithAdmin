@@ -11,7 +11,7 @@ const SubjectTestCard = () => {
         <div>Name of Mock test</div>
         <ul>
           <li className='flex'><FaGlobe className='mt-1' />Language</li>
-          <li className='flex'><IoStar />Rating</li>
+          <li className='flex'><IoStar className='mt-1'/>Rating</li>
           <li className='flex'><FaSortNumericUp />Total Mock Test</li>
           <li className='flex'><GoClockFill />Duration</li>
         </ul>
