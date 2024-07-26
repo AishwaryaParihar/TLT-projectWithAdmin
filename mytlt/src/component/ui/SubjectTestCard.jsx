@@ -18,7 +18,7 @@ const SubjectTestCard = () => {
           <li className='flex'><GoClockFill className='mt-2 mr-5'/>Duration</li>
           <li className='flex'><FaEdit className='mt-2 mr-5'/>Start Mock Test</li>
         </ul>
-        <button className='bg-primary rounded-sm'>Start Attempt</button>
+        <button className='bg-primary rounded-lg py-2 px-10 mt-3'>Start Attempt</button>
       </div>
     </div>
   )
