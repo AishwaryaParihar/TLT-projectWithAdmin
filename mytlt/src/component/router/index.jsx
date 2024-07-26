@@ -24,6 +24,7 @@ import Gallery from "../Gallery";
 import { PYpapers } from "../content/PYpapers";
 import PYpaperform from "../content/PYpaperform";
 import SubjectTestCard from "../ui/SubjectTestCard";
+import Testinstruction from "../ui/Testinstruction";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -86,8 +87,14 @@ export const router = createBrowserRouter([
         element: <RegistrationDetails />,
       },
       {
-        path: "mockTest/subjectTest",
+        path: "mockTest/subjectTest/*",
         element: <SubjectTestCard />,
+        children: [
+          {
+            path: "Testinstruction",
+            element: <Testinstruction />,
+          },
+        ],
       },
       // {
       //   path: "login-admin",
