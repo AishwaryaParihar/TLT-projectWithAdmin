@@ -87,7 +87,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "mockTest/subjectTest",
-        element: <SubjectTestCard/>,
+        element: <SubjectTestCard />,
       },
       // {
       //   path: "login-admin",

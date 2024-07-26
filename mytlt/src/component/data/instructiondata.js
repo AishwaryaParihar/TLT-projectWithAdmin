@@ -1,0 +1,3 @@
+export const instructiondata=[
+  {in1:"The total duration of the examination is 60 minutes.",in2:"The clock will be set at the server. The countdown timer in the top right corner of screen will display the remaining time available to you for completing the examination. When the timer reaches zero, the examination will end by itself. You will not be required to end or submit your examination.",in3:"The Question Palette displayed on the right side of screen will show the status of each question using one of the following symbols:"}
+]
