@@ -1,10 +1,28 @@
 import React from "react";
 import "tailwindcss/tailwind.css";
 import productCards from "../../component/data/productCards";
-
+import { useState } from "react";
 // import './ContactUs.css';
 
 const MpcjContactForm1 = () => {
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    contact: "",
+    purchasedProduct: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data: ", data);
+  };
   return (
     <div className="form-container mx-5">
       <div className="form-box flex justify-center items-center min-h-screen ">
@@ -13,11 +31,14 @@ const MpcjContactForm1 = () => {
             Get your MPCJ Mains Offline Mock Test Series,
             <span className="text-red-500">Today!</span>
           </h2>
-          <form action="#">
+          <form onSubmit={handleSubmit}>
             <div className="form-row flex space-x-4 mb-6">
               <div className="input-data w-full relative">
                 <input
                   type="text"
+                  name="name"
+                  value={data.name}
+                  onChange={handleChange}
                   className="block w-full focus:border-red-500 outline-none"
                   required
                 />
@@ -32,6 +53,9 @@ const MpcjContactForm1 = () => {
               <div className="input-data w-full relative">
                 <input
                   type="email"
+                  name="email"
+                  value={data.email}
+                  onChange={handleChange}
                   className="block w-full focus:border-red-500 outline-none"
                   required
                 />
@@ -46,6 +70,9 @@ const MpcjContactForm1 = () => {
               <div className="input-data w-full relative">
                 <input
                   type="tel"
+                  name="contact"
+                  value={data.contact}
+                  onChange={handleChange}
                   className="block w-full focus:border-red-500 outline-none"
                   required
                 />
@@ -58,11 +85,14 @@ const MpcjContactForm1 = () => {
             <div className="form-row flex space-x-4 mb-6">
               <div className="input-data w-full relative">
                 <label
-                  for="countries"
+                   htmlFor="TPM"
                   class="block mb-2 text-sm font-medium text-gray-500 dark:text-white pl-4 "
                 ></label>
                 <select
-                  id="countries"
+                  id="TPM"
+                  name="purchasedProduct"
+                  value={data.purchasedProduct}
+                  onChange={handleChange}
                   class="bg-gray-50 border border-gray-300 text-gray-500 text-sm rounded-lg focus:ring-red-500 focus:border-red-500 block w-full p-2.5 dark:bg-gray-700 border-t-0 border-x-0   dark:border-red-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-red-500 dark:focus:border-red-500"
                 >
                   {productCards.map((items, index) => (

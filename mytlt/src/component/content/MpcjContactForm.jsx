@@ -20,7 +20,6 @@ const MpcjContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form data: ", data);
-    // You can add further actions such as sending the data to an API here
   };
 
   return (
