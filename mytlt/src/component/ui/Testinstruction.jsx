@@ -79,6 +79,9 @@ const Testinstruction = () => {
             <li>{items.in15}</li>
             <li>{items.in16}</li>
           </dl>
+          <button className="bg-primary font-bold text-white w-20 p-2 rounded-md mt-3">
+            Next
+          </button>
         </div>
       ))}
     </>
