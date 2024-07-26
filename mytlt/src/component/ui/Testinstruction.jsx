@@ -1,5 +1,6 @@
 import React from "react";
 import { instructiondata } from "../data/instructiondata";
+import Testinstruction2 from "./Testinstruction2";
 const Testinstruction = () => {
   return (
     <>
@@ -82,6 +83,8 @@ const Testinstruction = () => {
           <button className="bg-primary font-bold text-white w-20 p-2 rounded-md mt-3">
             Next
           </button>
+
+          <Testinstruction2></Testinstruction2>
         </div>
       ))}
     </>
