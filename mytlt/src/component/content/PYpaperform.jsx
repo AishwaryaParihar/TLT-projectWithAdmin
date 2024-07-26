@@ -24,37 +24,40 @@ const PYpaperform = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let valid = true;
     if (data.name === "") {
       setNameAlert(true);
+      valid = false;
     } else {
       setNameAlert(false);
     }
     if (data.email === "") {
       setEmailAlert(true);
+      valid = false;
     } else {
       setEmailAlert(false);
     }
     if (data.number === "") {
       setNumAlert(true);
+      valid = false;
     } else {
       setNumAlert(false);
     }
 
-    if (data.name && data.email && data.number) {
+    if (valid) {
       console.log("Form data: ", data);
+      downloadFile(writtenImg);
     }
   };
 
   const downloadFile = (url) => {
-    if (data.name && data.email && data.number) {
-      const filename = url.split("/").pop();
-      const aTag = document.createElement("a");
-      aTag.href = url;
-      aTag.setAttribute("download", filename);
-      document.body.appendChild(aTag);
-      aTag.click();
-      aTag.remove();
-    }
+    const filename = url.split("/").pop();
+    const aTag = document.createElement("a");
+    aTag.href = url;
+    aTag.setAttribute("download", filename);
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
   };
 
   return (
@@ -136,7 +139,6 @@ const PYpaperform = () => {
           <button
             type="submit"
             className="text-sm font-bold text-white bg-primary px-1 w-48 py-1 mt-2 rounded-sm"
-            onClick={() => downloadFile(writtenImg)}
           >
             Submit
           </button>
