@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PYpaperform } from "./PYpaperform";
+import PYpaperform from "./PYpaperform";
 
 import dl from "../../assets/dl.png";
 import gi from "../../assets/gj.png";
@@ -89,7 +89,7 @@ export const PYpapers = () => {
                 >
                   X
                 </button>
-                <PYpaperform />
+                <PYpaperform/>
               </div>
             </div>
           )}
