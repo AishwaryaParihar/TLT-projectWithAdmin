@@ -1,38 +1,52 @@
-import React from "react";
-import { useState } from "react";
+// src/component/content/PYpaperform.jsx
+import React, { useState } from "react";
 import writtenImg from "../../assets/written.jpg";
+import "tailwindcss/tailwind.css";
 
-const dwfile = writtenImg;
-export const PYpaperform = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [number, setNumer] = useState("");
+const PYpaperform = () => {
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    number: "",
+  });
 
   const [nameAlert, setNameAlert] = useState(false);
   const [emailAlert, setEmailAlert] = useState(false);
   const [numAlert, setNumAlert] = useState(false);
 
-  const handleSumbit = (event) => {
-    event.preventDefault();
-    if (name === "") {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (data.name === "") {
       setNameAlert(true);
     } else {
       setNameAlert(false);
     }
-    if (email === "") {
+    if (data.email === "") {
       setEmailAlert(true);
     } else {
       setEmailAlert(false);
     }
-    if (number === "number") {
+    if (data.number === "") {
       setNumAlert(true);
     } else {
       setNumAlert(false);
     }
+
+    if (data.name && data.email && data.number) {
+      console.log("Form data: ", data);
+    }
   };
 
-  const dw = (url) => {
-    if (name !== "" && email !== "" && number !== "number") {
+  const downloadFile = (url) => {
+    if (data.name && data.email && data.number) {
       const filename = url.split("/").pop();
       const aTag = document.createElement("a");
       aTag.href = url;
@@ -42,93 +56,94 @@ export const PYpaperform = () => {
       aTag.remove();
     }
   };
+
   return (
-    <>
-      <div className="flex justify-center flex-wrap gap-12 my-8 ">
-        <form onSubmit={handleSumbit} className="flex flex-col">
-          <div className="flex flex-col justify-center">
-            <div className="flex  flex-wrap sm:flex-nowrap  w-[100%] flex-col">
-              <label className="flex text-primary-marineBlue font-[500] mb-2">
-                Name
-              </label>
-              <input
-                onChange={(e) => setName(e.target.value)}
-                className={`jinput ${
-                  nameAlert
-                    ? "focus:outline-primary-strawberryRed"
-                    : "focus:outline-primary-marineBlue"
-                } outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
-                type="text"
-                placeholder="e.g.Stephen King"
-              />
-              <span
-                className={`${
-                  nameAlert ? "inline" : "hidden"
-                } text-primary-strawberryRed font-[500] text-sm `}
-              >
+    <div className="flex justify-center flex-wrap gap-12 my-8">
+      <form onSubmit={handleSubmit} className="flex flex-col">
+        <div className="flex flex-col justify-center">
+          <div className="flex flex-wrap sm:flex-nowrap w-full flex-col mb-6">
+            <label className="flex text-primary-marineBlue font-medium mb-2">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={data.name}
+              onChange={handleChange}
+              className={`jinput ${
+                nameAlert
+                  ? "focus:outline-primary-strawberryRed"
+                  : "focus:outline-primary-marineBlue"
+              } outline outline-1 outline-neutral-lightGray rounded p-3`}
+              placeholder="e.g. Stephen King"
+              required
+            />
+            {nameAlert && (
+              <span className="text-primary-strawberryRed font-medium text-sm">
                 This field is required
               </span>
-            </div>
-
-            {/*----------- Email  --------- */}
-            <div className="flex flex-col w-[100%] mb-2">
-              <label className="text-primary-marineBlue font-[500] mb-2 mt-5">
-                Email Adress
-              </label>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                className={` jinput ${
-                  email
-                    ? "focus:outline-primary-strawberryRed"
-                    : "focus:outline-primary-marineBlue"
-                } outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
-                type="email"
-                placeholder="e.g.stephenking@lorem.com"
-              />
-              <span
-                className={`${
-                  emailAlert ? "inline" : "hidden"
-                } text-primary-strawberryRed font-[500] text-sm `}
-              >
-                This field is required
-              </span>
-            </div>
-
-            {/*----------- Number  --------- */}
-            <div className="flex flex-col w-[100%] mb-2">
-              <label className="text-primary-marineBlue font-[500] mb-2 mt-5">
-                Phone Number
-              </label>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                className={` jinput ${
-                  number
-                    ? "focus:outline-primary-strawberryRed"
-                    : "focus:outline-primary-marineBlue"
-                } outline outline-1 outline-neutral-lightGray rounded-[4px] p-3 `}
-                type="Number"
-                placeholder="e.g.stephenking@lorem.com"
-              />
-              <span
-                className={`${
-                  numAlert ? "inline" : "hidden"
-                } text-primary-strawberryRed font-[500] text-sm `}
-              >
-                This field is required
-              </span>
-            </div>
-
-            <button
-              className="text-sm font-bold text-white bg-primary px-1 w-[190px] py-1 mt-2 rounded-sm "
-              onClick={() => {
-                dw(dwfile);
-              }}
-            >
-              Submit
-            </button>
+            )}
           </div>
-        </form>
-      </div>
-    </>
+
+          <div className="flex flex-wrap sm:flex-nowrap w-full flex-col mb-6">
+            <label className="flex text-primary-marineBlue font-medium mb-2">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={data.email}
+              onChange={handleChange}
+              className={`jinput ${
+                emailAlert
+                  ? "focus:outline-primary-strawberryRed"
+                  : "focus:outline-primary-marineBlue"
+              } outline outline-1 outline-neutral-lightGray rounded p-3`}
+              placeholder="e.g. stephenking@lorem.com"
+              required
+            />
+            {emailAlert && (
+              <span className="text-primary-strawberryRed font-medium text-sm">
+                This field is required
+              </span>
+            )}
+          </div>
+
+          <div className="flex flex-wrap sm:flex-nowrap w-full flex-col mb-6">
+            <label className="flex text-primary-marineBlue font-medium mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              name="number"
+              value={data.number}
+              onChange={handleChange}
+              className={`jinput ${
+                numAlert
+                  ? "focus:outline-primary-strawberryRed"
+                  : "focus:outline-primary-marineBlue"
+              } outline outline-1 outline-neutral-lightGray rounded p-3`}
+              placeholder="e.g. 123-456-7890"
+              required
+            />
+            {numAlert && (
+              <span className="text-primary-strawberryRed font-medium text-sm">
+                This field is required
+              </span>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            className="text-sm font-bold text-white bg-primary px-1 w-48 py-1 mt-2 rounded-sm"
+            onClick={() => downloadFile(writtenImg)}
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
+
+export default PYpaperform;

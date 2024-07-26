@@ -22,7 +22,7 @@ import ThankYou from "../content/ThankYou";
 import PersonalInfo from "../content/PersonalInfo";
 import Gallery from "../Gallery";
 import { PYpapers } from "../content/PYpapers";
-import { PYpaperform } from "../content/PYpaperform";
+import PYpaperform from "../content/PYpaperform";
 import SubjectTestCard from "../ui/SubjectTestCard";
 export const router = createBrowserRouter([
   {
