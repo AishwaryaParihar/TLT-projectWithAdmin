@@ -11,4 +11,4 @@ const mpcjOfflineformdata = async (req, res) => {
   }
 };
 
-module.exports = { createContact };
+module.exports = { mpcjOfflineformdata };

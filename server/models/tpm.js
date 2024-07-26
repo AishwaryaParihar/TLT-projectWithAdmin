@@ -1,8 +1,7 @@
-// models/ContactForm.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const mpcjFormSchema = new Schema({
+const tpmFormSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -21,6 +20,5 @@ const mpcjFormSchema = new Schema({
   },
 });
 
-const MPCJFormdetails = mongoose.model('MPCJFormdetails', mpcjFormSchema);
-
-module.exports = MPCJFormdetails;
+const tpmFormDetails = mongoose.model("tpmFormDetails", tpmFormSchema);
+module.exports = tpmFormDetails;
